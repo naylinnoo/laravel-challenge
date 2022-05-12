@@ -24,4 +24,8 @@ class Post extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function scopeOwnPost($query, $post_id){
+        $query->where('author_id', auth()->id());
+    }
 }

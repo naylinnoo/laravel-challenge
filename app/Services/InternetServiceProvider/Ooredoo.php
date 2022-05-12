@@ -2,21 +2,12 @@
 
 namespace App\Services\InternetServiceProvider;
 
-class Ooredoo extends Mpt
+use App\Services\InternetServiceProvider\Interfaces\OperatorInterface;
+
+class Ooredoo extends Operator implements OperatorInterface
 {
-    protected $operator = 'ooredoo';
-    
-    protected $month = 0;
-    
-    protected $monthlyFees = 150;
-    
-    public function setMonth(int $month)
-    {
-        $this->month = $month;
-    }
-    
-    public function calculateTotalAmount()
-    {
-        return $this->month * $this->monthlyFees;
+    public function __construct(){
+        $this->operator = 'Ooredoo';
+        $this->monthlyFees = 150;
     }
 }
